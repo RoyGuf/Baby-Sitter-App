@@ -6,7 +6,7 @@
     <div class="meat "></div>
     <div class="bottom-bun "></div>
   </label>
-  <div class="nav z-10 w-1/2 lg:w-1/4">
+  <div class="nav z-10 w-2/3 lg:w-1/4">
     <div class=" nav-wrapper">
       <nav class="items-center mx-auto my-0 h-full " >
         <li v-if="!auth" class="px:2 md:px-5 pt-20 block items-center h-auto text-xs md:text-lg overflow-hidden ">

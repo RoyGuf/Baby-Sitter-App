@@ -31,6 +31,7 @@
             <tab title="פרטים">
               <p><strong>גיל : </strong>{{ babySitter.age }}</p>
               <p><strong>מגדר : </strong>{{ babySitter.gender }}</p>
+              <p><strong>תעריף לשעה : </strong>{{ babySitter.price }}  ₪</p>
               <p><strong>עיר : </strong>{{ babySitter.address ? babySitter.address.city : babySitter.address }}</p>
               <p class="relative"><strong>טלפון : </strong><a dir="rtl" class="text-cyan-800 hover:underline" :href="`tel:${ babySitter.phone }`"> 
                 {{ babySitter.phone }} 
@@ -70,12 +71,14 @@
               </div>
             </tab>
             <tab title="גילאים">
-              <p class="font-semibold">עובד.ת עם גילאים:</p>
+              <p class="font-semibold">{{ babySitter.firstName }} עובד.ת עם גילאים:</p>
               <div v-for="age of babySitter.ageGroups">
                 <li>{{  age }}</li>
               </div>
             </tab>
-            <tab title="אודות">{{ babySitter.description }}</tab>
+            <tab title="אודות">
+              <h1 class="font-bold underline underline-offset-4">קצת על {{ babySitter.firstName }} :</h1>
+              {{ babySitter.description }}</tab>
           </tabs-wrapper>
         </div>
       </div>

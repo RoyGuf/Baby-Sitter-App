@@ -1,6 +1,6 @@
 <template>
-  <div class="md:max-w-[1200px] mx-auto pt-5">
-    <h1 class="text-2xl p-4 h3 mb-3 fw-normal text-center font-semibold bg-slate-200">הרשמה</h1>
+  <div class="md:max-w-[1200px] mx-auto pt-10">
+    <h1 class="text-2xl p-4 h3 mb-3 fw-normal text-center font-semibold bg-slate-200 rounded-md">הרשמה</h1>
     <form @submit.prevent="submit" class="pt-5 md:w-full mx-auto p-10 ">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
         <div>
