@@ -2,8 +2,11 @@
 
 
 Babysitter services **Full-Stack Application**, designed to provide a **modern solution** to the task of finding a babysitter. The application provides a solution for the 2 sides of the babysitter market: The service providers - The babysitters, and the customers - People (mostly parents) who are interested in babysitting services.
+</br>
 As a **babysitter**, you can register for the app, edit personal information, see customer's reviews, etc.
+</br>
 As a **customer**, you can search for babysitters by name / city / age ranges, view reviews of previous customers on each babysitter, add reviews to help future customers decide, etc.
+</br>
 Today, most of the market is managed according to the "Word-of-mouth advertising" method, something that does not correspond to today's modern era, and that is why I developed the application. I think the app can help this industry grow and make it easier for both the babysitters and the customers in their task.
 
 ## Tech
@@ -26,14 +29,18 @@ Dillinger uses a number of open source projects to work properly:
 ## Installation
 
 The app requires [Node.js](https://nodejs.org/) v18+ to run.
-Every part of the app ([Front-end] / [Back-end]) requires a ```.env``` file with specific variables to run. 
+</br>
+Every part of the app ([Front-end] / [Back-end]) requires a ```.env``` file with specific variables to run.
+</br> 
 In every sub-directory([Front-end] / [Back-end]) you can find an Installation guide + list of the **required variables**.
 
 ## Services
 
 The application requires a connection to a Mongo database and a Cloudinary images upload service. 
-There are free plans for both of these services
-Instructions for creating an account are in the links below
+</br>
+There are free plans for both of these services.
+</br>
+Instructions for creating an account are in the links below.
 
 | Service | Link |
 | ------ | ------ |
