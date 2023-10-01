@@ -21,7 +21,7 @@
 <script setup>
 import { ref, onMounted, onUpdated } from 'vue';
 import store from '../store';
-import BabySitterListItem from '../components/babySitterListItem.vue';
+import BabySitterListItem from '../components/BabySitterListItem.vue';
 import { computed } from '@vue/reactivity'
 import { useRoute } from'vue-router'
 import BabySitterListItemSkeleton from './skeletons/BabySitterListItemSkeleton.vue'
@@ -29,7 +29,7 @@ import BabySitterListItemSkeleton from './skeletons/BabySitterListItemSkeleton.v
 
 const babySitters = ref('');
 const route       = useRoute();
-const loaded     = ref(false)
+const loaded      = ref(false)
 
 
 onMounted(() => {
@@ -39,6 +39,7 @@ onMounted(() => {
     loaded.value      = true;
   })
   .catch(err=> {
+    console.log(err);
     babySitters.value = {};
   });
 });

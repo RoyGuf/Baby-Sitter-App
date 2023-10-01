@@ -27,5 +27,6 @@ import { inject } from 'vue'
     min-height: 200px;
     border: 1px solid #8080806e;
     border-radius: 10px;
+    transition: 0.4s ease-in-out;
   }
 </style>

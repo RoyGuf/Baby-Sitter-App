@@ -29,7 +29,17 @@
             <span>הרשמה</span>
           </router-link>            
         </li>
-        <li v-if="auth" class="px:2 md:px-5 pt-20 block items-center h-auto text-xs md:text-lg overflow-hidden ">
+        <li v-if="auth" class="px:2 md:px-5 pt-20 block items-center h-auto  text-xs md:text-lg overflow-hidden ">
+          <router-link
+            to="/dashboard"
+            class="nav-link">
+            <span class="material-symbols-outlined">
+              account_circle
+            </span>
+            <span>חשבון</span>
+          </router-link>            
+        </li>
+        <li v-if="auth" class="px:2 md:px-5  block items-center h-auto text-xs md:text-lg overflow-hidden ">
           <a href="#" class="nav-link" @click="logout">
           <span class="material-symbols-outlined">
             person_off
@@ -113,8 +123,16 @@ function toggleNav(event){
     font-size: 24px;
   }
 }
+@media screen and (min-width: 1400px) {
+  label.hamburger{
+    top: 4rem;
+  }
+  span.material-symbols-outlined{
+    margin-right: 3rem;
+  }
+}
   .material-symbols-outlined{
-    /* margin-right: 6rem; */
+    margin-right: 0;
     position: absolute;
     display: block;
     font-size: 30px;

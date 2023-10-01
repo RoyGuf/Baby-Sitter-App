@@ -1,6 +1,6 @@
 <template>
   <span v-if="nameValue" class="block text-md font-medium text-slate-700 py-2">{{ nameValue }}</span>
-  <input :value="modelValue" :type="type" :class="class"
+  <input :value="modelValue" :type="type" :class="class" :id="id"
     @change="$emit('change', $event)"
     @input="handleInput($event.target.value)"
       class="peer mt-1 block  px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
@@ -8,7 +8,7 @@
       disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
       invalid:border-[#cb4e3a] invalid:text-pink-600
       focus:invalid:border-[#cb4e3a] focus:invalid:ring-[#cb4e3a]"
-      :placeholder="placeholder" required>
+      :placeholder="placeholder" :required="required">
 </template>
 
 <script setup>
@@ -19,7 +19,9 @@ const inputData   = defineProps({
   placeholder: String,
   type: String,
   class: String,
-  change: Function
+  change: Function,
+  required: String,
+  id: String,
 });
 const emit        = defineEmits(['change', 'update:modelValue'])
 const handleInput = (e) => emit('update:modelValue', e)

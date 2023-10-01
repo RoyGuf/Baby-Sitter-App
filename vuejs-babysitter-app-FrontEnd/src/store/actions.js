@@ -39,6 +39,23 @@ export function createBabySitter({ commit }, data){
   return axiosClient.post(`/babysitter`, data)
 };
 
+export function updateBabySitter({ commit }, {data, id}){
+  console.log(data);
+  return axiosClient.post(`/babysitter/${id}`, data)
+  .then((babysitter) => {
+    commit('setLoggedInBabySitter', babysitter.data);
+    return {message: "success"}
+  })
+};
+
+export function deleteMediaFromBabySitter({ commit }, {babysitterId, mediaId}){
+  return axiosClient.delete(`/babysitter/${babysitterId}/removeMedia/${mediaId}`)
+  .then((babysitter) => {
+    commit('setLoggedInBabySitter', babysitter.data);
+    return {message: "success"}
+  })
+};
+
 // Customer
 
 export function searchCustomerById({ commit }, id){
@@ -53,6 +70,10 @@ export function searchCustomerById({ commit }, id){
 
 export function getAuthentication({ commit }, next){
   return axiosClient.get(`/auth/user`)
+  .then(({data}) => {
+    commit('setLoggedInBabySitter', data);
+    return {message: "success"}
+  })
   .catch(next)
 };
 
@@ -62,18 +83,20 @@ export function setAuth({ commit }, auth){
 
 export function register({ commit }, babysitter){
   return axiosClient.post(`/auth/register`, babysitter)
-  .then((data) => {
-    commit('setCurrentCustomer', data);
-  });
+  // .then((data) => {
+  //   commit('setCurrentCustomer', data);
+  // });
 };
 
 export function login({ commit }, data){
-  localStorage.setItem("isAuthenticated", JSON.stringify({
-    value: true,
-    expDate: new Date().setDate(new Date().getDate() + 1)
-  }));
+  
   return axiosClient.post(`/auth/login`, data)
-  .then((res) => {
+  .then(({data}) => {
+    localStorage.setItem("isAuthenticated", JSON.stringify({
+      value: true,
+      expDate: new Date().setDate(new Date().getDate() + 1)
+    }));
+    commit('setLoggedInBabySitter', data);
     commit('setAuth', true)
   });
 };
@@ -82,6 +105,7 @@ export function logout({ commit }, data){
   return axiosClient.post(`/auth/logout`, data)
   .then((res) => {
     localStorage.removeItem("isAuthenticated");
+    commit('setLoggedInBabySitter', {});
     commit('setAuth', false)
   });
 };

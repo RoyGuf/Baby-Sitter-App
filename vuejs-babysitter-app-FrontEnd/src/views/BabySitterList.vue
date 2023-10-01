@@ -1,5 +1,5 @@
 <template>
-  <div class="md:max-w-[1200px] mx-auto pt-3">
+  <div class="md:max-w-[1200px] mx-auto pt-5">
     <BabysitterFilters /> 
     <div class="item_list grid grid-cols-1 md:grid-cols-2 gap-5 p-8 max-[600px]:gap-15" 
     v-if="loaded && babySitters.length">
@@ -23,7 +23,7 @@
 import { computed } from '@vue/reactivity'
 import store from '../store';
 import { ref, onMounted, onUpdated, reactive, watch } from 'vue';
-import BabySitterListItem from '../components/babySitterListItem.vue';
+import BabySitterListItem from '../components/BabySitterListItem.vue';
 import BabySitterListItemSkeleton from './skeletons/BabySitterListItemSkeleton.vue'
 import BabysitterFilters from '../components/BabysitterFilters.vue';
 

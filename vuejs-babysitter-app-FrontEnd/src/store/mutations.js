@@ -68,6 +68,10 @@ export function setCurrentBabySitter(state, babysitter) {
   state.currentBabySitter = babysitter;
 };
 
+export function setLoggedInBabySitter(state, babysitter) {
+  state.loggedInBabySitter = babysitter;
+};
+
 export function setBabySittersByAges(state, babysitters) {
   state.searchedBabySitters.data = babysitters;
 };
@@ -75,8 +79,8 @@ export function setBabySittersByAges(state, babysitters) {
 
 // Customer
 
-export function setCurrentCustomer(state, babysitter) {
-  state.currentCustomer = babysitter;
+export function setCurrentCustomer(state, customer) {
+  state.currentCustomer = customer;
 };
 
 

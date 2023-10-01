@@ -103,6 +103,7 @@ async function sendReview(){
       emit('eventname', false);
     })
     .catch(err=> {
+      console.log(err);
       alertError()
       formError.value = true
       formLoad.value  = false;

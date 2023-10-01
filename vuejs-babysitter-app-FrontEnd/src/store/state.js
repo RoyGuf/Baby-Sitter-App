@@ -8,6 +8,7 @@ export default {
     data: []
   },
   currentBabySitter: {},
+  loggedInBabySitter: {},
   currentCustomer: {},
   authenticated: false,
 }

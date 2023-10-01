@@ -4,7 +4,7 @@
     <form @submit.prevent="submit" class="pt-5 md:w-full mx-auto p-10 ">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
         <div>
-          <custom-input class="w-full" v-model="data.firstName" placeholder="שם פרטי" nameValue="שם פרטי" type="text"></custom-input>            
+          <custom-input required="true" class="w-full" v-model="data.firstName" placeholder="שם פרטי" nameValue="שם פרטי" type="text"></custom-input>            
           <span v-if="!formSuccess" v-for="error in v$.firstName.$errors" :key="error.$uid" class="text-red-500">
             {{ error.$message }}
           </span>
@@ -16,19 +16,19 @@
           </span>
         </div>
         <div>
-          <custom-input class="w-full" v-model="data.password" placeholder="סיסמה" nameValue="סיסמה" type="password"></custom-input>            
+          <custom-input required="true" class="w-full" v-model="data.password" placeholder="סיסמה" nameValue="סיסמה" type="password"></custom-input>            
           <span v-if="!formSuccess" v-for="error in v$.password.$errors" :key="error.$uid" class="text-red-500">
             {{ error.$message }}
           </span>
         </div>
         <div>
-          <custom-input class="w-full" v-model="data.email" placeholder="אימייל" nameValue="כתובת אימייל" type="email"></custom-input>
+          <custom-input required="true" class="w-full" v-model="data.email" placeholder="אימייל" nameValue="כתובת אימייל" type="email"></custom-input>
           <span v-if="!formSuccess" v-for="error in v$.email.$errors" :key="error.$uid" class="text-red-500">
             {{ error.$message }}
           </span>
         </div>
         <div>
-          <custom-input class="w-full" v-model="data.phone" placeholder="מספר טלפון" nameValue="מספר טלפון" type="phone"></custom-input>
+          <custom-input required="true" class="w-full" v-model="data.phone" placeholder="מספר טלפון" nameValue="מספר טלפון" type="phone"></custom-input>
           <span v-if="!formSuccess" v-for="error in v$.phone.$errors" :key="error.$uid" class="text-red-500">
             {{ error.$message }}
           </span>
@@ -40,7 +40,7 @@
           </span>
         </div>
         <div>
-          <custom-input class="w-full" v-model="data.price" placeholder="תעריף לשעה" nameValue="תעריף לשעה" type="text"></custom-input>
+          <custom-input required="true" class="w-full" v-model="data.price" placeholder="תעריף לשעה" nameValue="תעריף לשעה" type="text"></custom-input>
           <span v-if="!formSuccess" v-for="error in v$.price.$errors" :key="error.$uid" class="text-red-500">
             {{ error.$message }}
           </span>
@@ -95,6 +95,7 @@
             {{ error.$message }}
           </span>
         </div>
+        <!-- <drag-and-drop @change="handleImage" class="w-full"  placeholder="תמונה" nameValue="תמונה" type="file"></drag-and-drop> -->
       </div>
       <p v-if="formError" class="text-red-500">
         אירעה שגיאה, נסה שוב מאוחר יותר
@@ -119,6 +120,7 @@ import ages from '../assets/ageGroups.js'
 import { toast } from 'vue3-toastify';
 import 'vue3-toastify/dist/index.css';
 import CustomInput from '../components/CustomInput.vue'
+import DragAndDrop from '../components/DragAndDrop.vue';
 
 
 const router = useRouter();
@@ -160,7 +162,7 @@ const rules = computed(() => {
       details: "",
     },
     gender: "",
-    ageGroups: [],
+    ageGroups: { required, minLength: minLength(1) },
     description: "",
   }
 })
@@ -179,17 +181,18 @@ async function submit() {
       alertSuccess()
       setTimeout(() => router.push('/login'), "1500");
     } else {
-      alertError()
+      alertError("נא לתקן את השגיאות")
       formLoad.value = false;
     }
   } catch (error) {
-    alertError()
+    console.log(error);
+    alertError("נא לתקן את השגיאות")
     formError.value = true;
     formLoad.value  = false;
   }
 }
-function alertError() {
-  toast.error("נא לתקן את השגיאות", {
+function alertError(errorMessage) {
+  toast.error(errorMessage, {
     autoClose: 2000,
     rtl: true,
   });
@@ -202,13 +205,17 @@ function alertSuccess() {
 }
 function handleImage(e){
   const file = e.target.files[0];
-  setFileToBase(file);
+  console.log(file.type.split("/")[0]);
+  if(file.type.split("/")[0] != "image") {
+    alertError("תמונה צריכה להיות בפורמט JPEG / PNG")
+    return
+  }else setFileToBase(file);
 }
 function setFileToBase (file) {
   const reader = new FileReader();
   reader.readAsDataURL(file);
   reader.onloadend = () =>{
-    // console.log(reader.result);
+    console.log(reader.result);
     data.imgUrl = reader.result
   }
 }

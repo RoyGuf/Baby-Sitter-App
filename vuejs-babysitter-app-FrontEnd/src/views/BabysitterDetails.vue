@@ -9,8 +9,8 @@
           <div class="px-3">
             <h1 class="p-3 font-semibold text-center my-0 inline-flex items-center text-2xl">
               {{ babySitter.firstName + ' ' + babySitter.lastName }}</h1>
-            <p>גיל : {{ babySitter.age }}</p>
-            <p class="inline-flex py-1">דירוג כללי :  </p>
+            <p class="px-3">גיל : {{ babySitter.age }}</p>
+            <p class="inline-flex py-1 px-3">דירוג כללי :  </p>
             <star-rating
                 class="md:w-20 px-2 w-15"
                 :increment="0.1"
@@ -66,7 +66,7 @@
                 :rating="Number(babySitter.avgRate)"></star-rating> 
               </div>
               <div v-if="babySitter.reviews" class="max-h-70 overflow-y-auto  p-5 ">
-                <reviews-list :dataArray="babySitter">
+                <reviews-list :dataArray="babySitter" :showFormButton="true">
                 </reviews-list>
               </div>
             </tab>
@@ -106,6 +106,7 @@ const babySitter = ref('');
 const route      = useRoute();
 const loaded     = ref(false);
 
+
 onMounted(async() => {
   await store.dispatch('searchBabySitterById', route.params.id)
   .then(() => {
@@ -114,6 +115,7 @@ onMounted(async() => {
 
   })
   .catch(err=> {
+    console.log(err);
     loaded.value = true;
   });
 });

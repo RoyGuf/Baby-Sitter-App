@@ -8,7 +8,7 @@
       </div>
     </div>
     <div>
-      <reviews-list :dataArray="customer">
+      <reviews-list :dataArray="customer" :showFormButton="false">
       </reviews-list>
     </div>
   </div>
@@ -25,7 +25,7 @@ import NotFoundPage from './NotFoundPage.vue';
 
 const customer = ref('');
 const route    = useRoute();
-const loaded     = ref(false);
+const loaded   = ref(false);
 
 
 onMounted(() => {
@@ -35,6 +35,7 @@ onMounted(() => {
     customer.value = store.getters.getCurrentCustomer
   })
   .catch(err=> {
+    console.log(err);
     loaded.value   = true
     customer.value = {};
   });

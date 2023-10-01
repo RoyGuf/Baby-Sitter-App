@@ -51,9 +51,12 @@ import { ref } from 'vue';
   .tabs_header li.selected{
     color: white;
     background-color: slategray;
+    transition: 0.4s;
   }
   .tabs_header li{
     border-bottom: outset;
+    transition: 0.4s;
+
     /* scroll-margin-top: -1000px; */
   }
 </style>

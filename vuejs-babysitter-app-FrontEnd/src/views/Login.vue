@@ -67,7 +67,6 @@ async function submit() {
   formLoad.value = true;
   invalid.value  = false;
   const verified = await v$.value.$validate()
-  // AlertMessage.methods.alertError()
   try {
     if (verified) {
       const user = {
@@ -79,12 +78,13 @@ async function submit() {
       formSuccess.value = true;
       Object.assign(data, initialState);
       alertSuccess()
-      setTimeout(() => router.push('/'), "1500");
+      setTimeout(() => router.push({ name: 'dashboard'}), "1500");
     } else {
       alertError()
       formLoad.value = false;
     }
   } catch (error) {
+    console.log(error);
     if(error.response.data.message == "invalid credentials"){
       invalid.value = true;
     }

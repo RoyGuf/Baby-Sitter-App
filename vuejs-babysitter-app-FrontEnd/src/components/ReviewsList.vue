@@ -1,7 +1,6 @@
 <template>
   <div v-for="review of propsObject.dataArray.reviews" 
-      :key="propsObject.dataArray._id" 
-      :propsObject.dataArray="propsObject.dataArray"
+      :key="review" 
       class=" border-radius-2 border-gray-300 border-2 mt-2 shadow-xl bg-slate-50">
     <div class="border-b-gray-300 border-b-2 ">
       <router-link v-if="review.customer_id && !hideName"
@@ -12,7 +11,7 @@
         class="inline-flex text-lg bg-slate-200 p-3 shadow">
         {{ review.customer_id ? review.customer_id.name : 'ללא שם' }}
       </div>
-      <div class="inline-flex  px-10 text-center items-center ">דירוג:   
+      <div class="inline-flex px-2 md:px-10 text-center items-center ">דירוג:   
         <p class="shadow-xl text-md font-medium py-3 px-6 small-star mx-4">   {{ review.rate }}</p>
       </div>
     </div>
@@ -20,7 +19,7 @@
   </div>
   <button class="my-3 rounded-md text-center text-white bg-gray-600 w-1/2 block px-3 py-2 mx-auto" 
           @click.prevent="showForm = !showForm"
-          v-if="!hideName">{{ !showForm ? 'הוסף ביקורת' : 'סגור' }}
+          v-if="propsObject.showFormButton">{{ !showForm ? 'הוסף ביקורת' : 'סגור' }}
   </button>
   <Transition :duration="550" mode="out-in" name="nested">
     <ReviewForm v-if="showForm" v-model="showForm" @eventname="showForm = !showForm"></ReviewForm>
@@ -36,7 +35,7 @@ import ReviewForm from './ReviewForm.vue';
 
 const route       = useRoute();
 const hideName    = route.fullPath.includes('customer')
-const propsObject = defineProps(["dataArray"]); //store.state.currentBabySitter
+const propsObject = defineProps(["dataArray", "showFormButton"]); //store.state.currentBabySitter
 const showForm    = ref(false);
 
 
@@ -154,19 +153,3 @@ const showForm    = ref(false);
     left:2px;
 } */
 </style>
-
-
-<!-- <fieldset class="rating" >
-      <legend class="block text-sm font-medium text-slate-700 py-2">דירוג</legend>
-
-      <input  value="1" v-model="data.rate" id="one" class="block mx-3 peer/one" type="radio" name="status" checked />
-      <label for="one" class="peer-checked/one:text-sky-500">1</label>
-      <input  value="2" v-model="data.rate" id="two" class="block mx-3 peer/two" type="radio" name="status" checked />
-      <label for="two" class="peer-checked/two:text-sky-500">2</label>
-      <input  value="3" v-model="data.rate" id="three" class="block mx-3 peer/three" type="radio" name="status" checked />
-      <label for="three" class="peer-checked/three:text-sky-500">3</label>
-      <input  value="4" v-model="data.rate" id="four" class="block mx-3 peer/four" type="radio" name="status" checked />
-      <label for="four" class="peer-checked/four:text-sky-500">4</label>
-      <input  value="5" v-model="data.rate" id="five" class="block mx-3 peer/five" type="radio" name="status" checked />
-      <label for="five" class="peer-checked/five:text-sky-500">5</label>
-    </fieldset> -->

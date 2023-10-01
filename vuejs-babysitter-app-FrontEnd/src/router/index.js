@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory, createMemoryHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import BabySitterByAge from '../views/BabySitterByAge.vue'
-import BabySitterByCity from '../views/BabySitterByCity.vue'
 import DefaultLayout from '../components/DefaultLayout.vue'
 import BabySitterList from '../views/BabySitterList.vue'
 import BabysitterDetails from '../views/BabysitterDetails.vue'
@@ -11,6 +10,7 @@ import Register from '../views/Register.vue'
 import Ages from '../views/AgesGroups.vue'
 import NotFoundPage from '../views/NotFoundPage.vue'
 import About from '../views/About.vue'
+import Dashboard from '../views/Dashboard.vue'
 import store from '../store';
 import { computed } from '@vue/reactivity'
 
@@ -35,7 +35,13 @@ const routes = [
       {
         path: '/register',
         name: 'register',
-        component: Register
+        component: Register,
+      },
+      {
+        path: '/dashboard',
+        name: 'dashboard',
+        component: Dashboard,
+        meta:{requiresAuth: true}
       },
       {
         path: '/ages',
@@ -51,11 +57,6 @@ const routes = [
         path: '/by-age/:age',
         name: 'byAge',
         component: BabySitterByAge
-      },
-      {
-        path: '/letter/:letter',
-        name: 'byLetter',
-        component: BabySitterByCity
       },
       {
         path: '/search/:name',
@@ -105,7 +106,10 @@ router.beforeResolve(async (to, from) => {
   const auth         = localStorage.getItem("isAuthenticated")
   const routesToHome = to.name === 'login' || to.name === 'register'
   if(routesToHome && auth && new Date() < JSON.parse(auth).expDate){
-      return { name: 'home' }
+    return { name: 'home' }
+  }
+  if(to.meta.requiresAuth === true && !auth){
+    return { name: 'login' }
   }
 })
 

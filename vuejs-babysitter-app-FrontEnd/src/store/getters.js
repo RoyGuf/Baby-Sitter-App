@@ -26,6 +26,17 @@ export function getCurrentBabysitter(state){
   return state.currentBabySitter;
 }
 
+export function getLoggedInBabySitter(state){
+  let sum = 0;
+  for (let i = 0; i < state.loggedInBabySitter.reviews.length; i++) {
+    const review = state.loggedInBabySitter.reviews[i];
+    sum += Number(review.rate);
+  }
+  if(!state.loggedInBabySitter.reviews.length) state.loggedInBabySitter.avgRate = 0;
+  else state.loggedInBabySitter.avgRate = (sum / state.loggedInBabySitter.reviews.length).toFixed(1);
+  return state.loggedInBabySitter;
+}
+
 // Customer
 
 export function getCurrentCustomer(state){

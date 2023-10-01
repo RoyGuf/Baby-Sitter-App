@@ -7,7 +7,7 @@
         <up-button></up-button>
         <div class="logo flex mx-auto my-0 w-3/5 max-[600px]:w-full items-center z-50">
           <router-link :to="{ name: 'home' }" class="justify-center inline-flex h-full px-5 w-full">
-            <img src="https://i.ibb.co/CKTT7xJ/778f9779-16e8-4d8b-be8e-3f4d50bba372.png"
+            <img src="https://res-console.cloudinary.com/dicrh8yqo/thumbnails/transform/v1/image/upload/Y19saW1pdCxoXzE2MDAsd18xNjAwLGZfanBnLGZsX2xvc3N5LmFueV9mb3JtYXQucHJlc2VydmVfdHJhbnNwYXJlbmN5LnByb2dyZXNzaXZl/v1/YmFieXNpdHRlcnMtaW1hZ2VzL3Rlc3QveGd1NDc1OXVkc2IycG9va3Jtd3M=/template_primary"
               class="w-auto items-center h-auto block justify-center">
           </router-link>
         </div>
@@ -35,9 +35,9 @@ import HeaderMenu from './HeaderMenu.vue';
 import UpButton from './UpButton.vue';
 import router from '../router'
 
-const searching = ref(false);
-const route   = useRoute(); 
-const keyword = ref('');
+const searching      = ref(false);
+const route          = useRoute(); 
+const keyword        = ref('');
 const scrollPosition = ref(0);
 
 
@@ -85,6 +85,7 @@ function searchBabySitter() {
     searching.value = false;
   }
 };
+
 function updateScroll() {
   scrollPosition.value = window.scrollY
 };
@@ -99,7 +100,7 @@ function updateScroll() {
   header{
     background-color: #cb4e3a;
     color: #fff;
-    z-index: 9999;
+    z-index: 999;
   }
   @media screen and (min-width: 768px) {
     header.shrink, header.shrink > div > div{

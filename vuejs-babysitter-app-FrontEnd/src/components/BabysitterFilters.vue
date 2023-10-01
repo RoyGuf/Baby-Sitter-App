@@ -1,14 +1,14 @@
 <template>
 <div class="w-full p-2 filter">
-  <div class="text-center px-3 inline-block max-[600px]:w-full">
+  <div class="text-center px-3 inline-block max-[800px]:w-full">
     <label class="px-10 font-semibold text-center">גילאים:</label>
-    <select name="filter" id="filter" v-model="filter" class="max-[600px]:w-1/2 inline mx-2 shadow-sm  bg-[#fff] md:px-8 py-2 rounded text-center p-2 m-2 cursor-pointer">
+    <select name="filter" id="filter" v-model="filter" class="max-[800px]:w-1/2 inline mx-2 shadow-sm  bg-[#fff] md:px-8 py-2 rounded text-center p-2 m-2 cursor-pointer">
       <option value=" " class="text-slate-400">כולם</option>
       <option v-for="age of ages" :value="age.title" 
         :key="age.id">{{ age.title }}</option>
     </select>
   </div>
-  <div class="text-center px-3 inline-block max-[600px]:w-full">
+  <div class="text-center px-3 inline-block max-[800px]:w-full">
     <label class="px-10 font-semibold text-center">מיון לפי:</label>
     <select name="sort" id="sort" v-model="sort" class="inline mx-2 shadow-sm  bg-[#fff] md:px-7 py-2 rounded text-center p-2 m-2 cursor-pointer">
       <option value=" "  class="text-slate-400">ללא</option>
