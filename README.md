@@ -3,9 +3,9 @@
 
 Babysitter services **Full-Stack Application**, designed to provide a **modern solution** to the task of finding a babysitter. The application provides a solution for the 2 sides of the babysitter market: The service providers - The babysitters, and the customers - People (mostly parents) who are interested in babysitting services.
 </br>
-As a **babysitter**, you can register for the app, edit personal information, see customer's reviews, etc.
+- As a **babysitter**, you can register for the app, edit personal information, see customer's reviews, etc.
 </br>
-As a **customer**, you can search for babysitters by name / city / age ranges, view reviews of previous customers on each babysitter, add reviews to help future customers decide, etc.
+- As a **customer**, you can search for babysitters by name / city / age ranges, view reviews of previous customers on each babysitter, add reviews to help future customers decide, etc.
 </br>
 Today, most of the market is managed according to the "Word-of-mouth advertising" method, something that does not correspond to today's modern era, and that is why I developed the application. I think the app can help this industry grow and make it easier for both the babysitters and the customers in their task.
 
