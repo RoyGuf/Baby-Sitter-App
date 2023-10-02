@@ -1,5 +1,5 @@
 <p align="right" width="100%">
-    <img width="33%" align="right" src="https://res.cloudinary.com/dicrh8yqo/image/upload/v1696164609/babysitters-images/test/xgu4759udsb2pookrmws.png">
+    <img width="20%" align="right" src="https://res.cloudinary.com/dicrh8yqo/image/upload/v1696164609/babysitters-images/test/xgu4759udsb2pookrmws.png">
 </p>
 
 # Babysitter-Service-App
@@ -62,8 +62,22 @@ The DB Modules (collections) used in this app and their methods.
 
 ## Demo
 
-The application demo is hosted on [Render] cloud in this Url:
-##### [Babysitter-App](https://babysitter-app.onrender.com/)
+The application demo is hosted on [Render] cloud in this link:
+##### [Babysitter-App-Demo](https://babysitter-app.onrender.com/)
+
+
+</br>
+
+<p align="left" width="100%" height="200">
+    <img width="23%" height="200" align="right" src="https://res.cloudinary.com/dicrh8yqo/image/upload/v1696207870/babysitters-images/test/gafnzs99yapouh9pptyw.jpg">
+    <img width="23%" height="200" align="right" src="https://res.cloudinary.com/dicrh8yqo/image/upload/v1696207870/babysitters-images/test/itdg1koxumfaorgvowsf.jpg">
+    <img width="23%" height="200" align="right" src="https://res.cloudinary.com/dicrh8yqo/image/upload/v1696207871/babysitters-images/test/weurskewjr472y1l12we.jpg">
+    <img width="23%" height="200" align="right" src="https://res.cloudinary.com/dicrh8yqo/image/upload/v1696207870/babysitters-images/test/llsuj3o78ujucvwrewwt.jpg">
+</p>
+
+</br>
+</br>
+
 
 
 ## 🔗 Links
