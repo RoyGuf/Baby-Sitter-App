@@ -1,3 +1,7 @@
+**Align right:**
+<p align="right" width="100%">
+    <img width="33%" src="https://res.cloudinary.com/dicrh8yqo/image/upload/v1696164609/babysitters-images/test/xgu4759udsb2pookrmws.png">
+</p>
 # Babysitter-Service-App
 
 
