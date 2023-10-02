@@ -69,10 +69,10 @@ The application demo is hosted on [Render] cloud in this link:
 </br>
 
 <p align="left" width="100%" height="200">
-    <img width="22%" height="200" align="right" src="https://res.cloudinary.com/dicrh8yqo/image/upload/v1696207870/babysitters-images/test/gafnzs99yapouh9pptyw.jpg">
-    <img width="22%" height="200" align="right" src="https://res.cloudinary.com/dicrh8yqo/image/upload/v1696207870/babysitters-images/test/itdg1koxumfaorgvowsf.jpg">
-    <img width="23%" height="200" align="right" src="https://res.cloudinary.com/dicrh8yqo/image/upload/v1696207871/babysitters-images/test/weurskewjr472y1l12we.jpg">
-    <img width="23%" height="200" align="right" src="https://res.cloudinary.com/dicrh8yqo/image/upload/v1696207870/babysitters-images/test/llsuj3o78ujucvwrewwt.jpg">
+    <img width="22%" height="200" align="left" src="https://res.cloudinary.com/dicrh8yqo/image/upload/v1696207870/babysitters-images/test/gafnzs99yapouh9pptyw.jpg">
+    <img width="22%" height="200" align="left" src="https://res.cloudinary.com/dicrh8yqo/image/upload/v1696207870/babysitters-images/test/itdg1koxumfaorgvowsf.jpg">
+    <img width="22%" height="200" align="left" src="https://res.cloudinary.com/dicrh8yqo/image/upload/v1696207871/babysitters-images/test/weurskewjr472y1l12we.jpg">
+    <img width="22%" height="200" align="left" src="https://res.cloudinary.com/dicrh8yqo/image/upload/v1696207870/babysitters-images/test/llsuj3o78ujucvwrewwt.jpg">
 </p>
 
 </br>
