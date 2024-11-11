@@ -4,7 +4,7 @@ import { ref } from 'vue';
     <ul class="tabs_header items-center flex justify-between ">
       <li v-for="title in tabTitles" 
         ref="scrollToMe"
-        class="mr-0 font-semibold max-[600px]:px-2 max-[600px]:mx-0.5 rounded w-full text-center p-3 bg-slate-200 m-2 cursor-pointer hover:bg-slate-400" 
+        class="mr-0 font-semibold max-[600px]:px-2 max-[600px]:mx-0.5 rounded w-full text-center p-3 bg-[#cb4e3a40] m-2 cursor-pointer hover:bg-[#cb3a3a75]" 
         :key="title" 
         :id="title"
         :class="{selected: title == selectedTitle}"
@@ -50,7 +50,7 @@ import { ref } from 'vue';
   }
   .tabs_header li.selected{
     color: white;
-    background-color: slategray;
+    background-color: #cb3a3acf;
     transition: 0.4s;
   }
   .tabs_header li{

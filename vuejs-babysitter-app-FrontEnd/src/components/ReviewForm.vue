@@ -99,8 +99,10 @@ async function sendReview(){
       formLoad.value    = false;
       formSuccess.value = true;
       Object.assign(data, initialState);
+      store.dispatch('searchBabySitterById', route.params.id)
       alertSuccess();
       emit('eventname', false);
+
     })
     .catch(err=> {
       console.log(err);

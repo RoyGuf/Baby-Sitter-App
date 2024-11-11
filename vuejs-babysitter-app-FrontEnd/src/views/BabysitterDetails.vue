@@ -5,14 +5,13 @@
       <div class=" item_view md:max-w-7xl mx-auto p-20 m-3 max-[600px]:px-2 bg-white " v-if="loaded && babySitter"> <!-- v-if="Object.keys(Object.keys).length = 0" -->
         <div class="flex my-0 mx-auto w-full  h-44 py-3">
           <img :src="babySitter.avatar.url" :alt="babySitter.firstName + ' ' + babySitter.lastName"
-            class="rounded-md w-40 object-fill my-0  border-slate-400 border-2 ">
-          <div class="px-3">
-            <h1 class="p-3 font-semibold text-center my-0 inline-flex items-center text-2xl">
+            class=" shadow-lg rounded-md w-40 object-fill my-0  border-slate-400 border-2 ">
+          <div class="px-3 w-1/2">
+            <h1 class="hover:animate-wiggle shadow-md rounded-xl mb-2 px-3 bg-[#db8e8282] p-3 font-semibold text-center my-0 inline-flex items-center text-2xl">
               {{ babySitter.firstName + ' ' + babySitter.lastName }}</h1>
-            <p class="px-3">גיל : {{ babySitter.age }}</p>
-            <p class="inline-flex py-1 px-3">דירוג כללי :  </p>
-            <star-rating
-                class="md:w-20 px-2 w-15"
+            <p class="hover:animate-wiggle shadow-lg px-3 bg-[#db8e8282] w-fit rounded-xl">גיל : {{ babySitter.age }}</p>
+            <p class="hover:animate-wiggle shadow-lg inline-flex py-1 px-3 bg-[#db8e8282] w-1/2 rounded-xl my-3">דירוג כללי :  <star-rating
+                class="md:w-20 px-2 w-15 w-auto"
                 :increment="0.1"
                 :border-width="2"
                 :rtl="true"
@@ -23,24 +22,25 @@
                 :star-size="17"
                 :glow="10"
                 :glow-color="'#eee'"
-                :rating="Number(babySitter.avgRate)"></star-rating> 
+                :rating="Number(babySitter.avgRate)"></star-rating></p>
+             
           </div>
         </div>
         <div>
           <tabs-wrapper>
             <tab title="פרטים">
-              <p><strong>גיל : </strong>{{ babySitter.age }}</p>
-              <p><strong>מגדר : </strong>{{ babySitter.gender }}</p>
-              <p><strong>תעריף לשעה : </strong>{{ babySitter.price }}  ₪</p>
-              <p><strong>עיר : </strong>{{ babySitter.address ? babySitter.address.city : babySitter.address }}</p>
-              <p class="relative"><strong>טלפון : </strong><a dir="rtl" class="text-cyan-800 hover:underline" :href="`tel:${ babySitter.phone }`"> 
+              <p class="py-2 border-b-2 border-t-2 border-[#eee]"><strong>גיל : </strong>{{ babySitter.age }}</p>
+              <p class="py-2 border-b-2 border-[#eee]"><strong>מגדר : </strong>{{ babySitter.gender }}</p>
+              <p class="py-2 border-b-2 border-[#eee]"><strong>תעריף לשעה : </strong>{{ babySitter.price }}  ₪</p>
+              <p class="py-2 border-b-2 border-[#eee]"><strong>עיר : </strong>{{ babySitter.address ? babySitter.address.city : babySitter.address }}</p>
+              <p class="relative py-2 border-b-2 border-[#eee]"><strong>טלפון : </strong><a dir="rtl" class="text-cyan-800 hover:underline" :href="`tel:${ babySitter.phone }`"> 
                 {{ babySitter.phone }} 
                 <span class="material-symbols-outlined">
                   call
                 </span>
                 </a>   
               </p>
-              <p><strong>אימייל : </strong><a dir="rtl" class=" text-cyan-800 hover:underline" :href="`mailto:${ babySitter.email }`"> 
+              <p class="py-2 border-b-2 border-[#eee]"><strong>אימייל : </strong><a dir="rtl" class=" text-cyan-800 hover:underline" :href="`mailto:${ babySitter.email }`"> 
                 {{ babySitter.email }} 
                 <span class="material-symbols-outlined">
                   mail
@@ -93,7 +93,7 @@
 <script setup>
 import { computed } from '@vue/reactivity'
 import store from '../store';
-import { ref, onMounted, onUpdated } from 'vue';
+import { ref, onMounted, onUpdated, watch  } from 'vue';
 import { useRoute } from'vue-router'
 import Tab from '../components/Tab.vue';
 import TabsWrapper from '../components/TabsWrapper.vue'
@@ -110,7 +110,7 @@ const loaded     = ref(false);
 onMounted(async() => {
   await store.dispatch('searchBabySitterById', route.params.id)
   .then(() => {
-    babySitter.value = store.getters.getCurrentBabysitter;
+    babySitter.value = store.getters.getCurrentBabysitter
     loaded.value     = true;
 
   })
@@ -119,6 +119,13 @@ onMounted(async() => {
     loaded.value = true;
   });
 });
+watch(
+  () => store.state.currentBabySitter,
+  (newValue, oldValue) => {
+    babySitter.value = store.getters.getCurrentBabysitter
+  },
+  { deep: true }
+)
 
 </script>
 

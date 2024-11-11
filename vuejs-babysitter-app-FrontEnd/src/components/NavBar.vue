@@ -7,7 +7,7 @@
         <up-button></up-button>
         <div class="logo flex mx-auto my-0 w-3/5 max-[600px]:w-full items-center z-50">
           <router-link :to="{ name: 'home' }" class="justify-center inline-flex h-full px-5 w-full">
-            <img src="https://res-console.cloudinary.com/dicrh8yqo/thumbnails/transform/v1/image/upload/Y19saW1pdCxoXzE2MDAsd18xNjAwLGZfanBnLGZsX2xvc3N5LmFueV9mb3JtYXQucHJlc2VydmVfdHJhbnNwYXJlbmN5LnByb2dyZXNzaXZl/v1/YmFieXNpdHRlcnMtaW1hZ2VzL3Rlc3QveGd1NDc1OXVkc2IycG9va3Jtd3M=/template_primary"
+            <img src="https://res.cloudinary.com/dicrh8yqo/image/upload/v1727701819/filfwc0owxfsmjxkcklp.png"
               class="w-auto items-center h-auto block justify-center">
           </router-link>
         </div>
