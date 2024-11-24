@@ -6,12 +6,12 @@
         <div class="flex my-0 mx-auto w-full  h-44 py-3">
           <img :src="babySitter.avatar.url" :alt="babySitter.firstName + ' ' + babySitter.lastName"
             class=" shadow-lg rounded-md w-40 object-fill my-0  border-slate-400 border-2 ">
-          <div class="px-3 w-1/2">
+          <div class="px-3  w-full xl:w-1/2">
             <h1 class="hover:animate-wiggle shadow-md rounded-xl mb-2 px-3 bg-[#db8e8282] p-3 font-semibold text-center my-0 inline-flex items-center text-2xl">
               {{ babySitter.firstName + ' ' + babySitter.lastName }}</h1>
             <p class="hover:animate-wiggle shadow-lg px-3 bg-[#db8e8282] w-fit rounded-xl">גיל : {{ babySitter.age }}</p>
-            <p class="hover:animate-wiggle shadow-lg inline-flex py-1 px-3 bg-[#db8e8282] w-1/2 rounded-xl my-3">דירוג כללי :  <star-rating
-                class="md:w-20 px-2 w-15 w-auto"
+            <p class="hover:animate-wiggle shadow-lg inline-flex py-1 px-3 bg-[#db8e8282] w-full md:w-1/2 rounded-xl my-3">דירוג כללי:  <star-rating
+                class=""
                 :increment="0.1"
                 :border-width="2"
                 :rtl="true"
