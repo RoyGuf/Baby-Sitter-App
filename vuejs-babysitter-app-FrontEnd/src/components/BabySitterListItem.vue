@@ -5,14 +5,14 @@
           <img :src="babySitter.avatar.url" 
              :alt="babySitter.firstName + ' ' + babySitter.lastName"
              :title="babySitter.firstName + ' ' + babySitter.lastName"
-             class="md:w-2/5 w-1/2 basis-1/4 rounded-xl inline h-52 object-fill p-2">
-             <div class="p-5 inline basis-3/4">
+             class="md:w-2/5 w-1/2 basis-2/4 rounded-xl inline h-52 object-fill p-2">
+             <div class="p-5 inline basis-2/4">
                 <h3 class="p-3 py-1 font-semibold block text-xl">{{ babySitter.firstName + ' ' + babySitter.lastName }}</h3>
                 <p class="p-3 block">{{ babySitter.description }}</p>
              </div>
         </div>
         <div class="p-3">
-          <div class="p-3  py-1 grid grid-cols-3">
+          <div class="p-3  py-1 grid grid-cols-2">
             <p class="py-1"><strong>גיל: </strong>{{ babySitter.age }}</p>
             <!-- <p class="py-1"><strong>מגדר: </strong>{{ babySitter.gender }}</p> -->
             <p class="py-1"><strong>עיר: </strong>{{ babySitter.address ? babySitter.address.city : "" }}</p>

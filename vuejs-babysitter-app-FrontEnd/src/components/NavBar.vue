@@ -1,6 +1,6 @@
 <template>
   <header class="z-50 bg-white shadow-lg shadow-slate-500 h-68 fixed w-full top-0"
-  :class="[scrollPosition >= 250 ? 'shrink' : '', '']">
+  :class="[scrollPosition >= 200 ? 'shrink' : '', '']">
     <div class="max-w-[1200px] items-center mx-auto head">
       <div class="justify-between item-stretch flex p-1 h-24 md:h-44">
         <header-menu></header-menu>

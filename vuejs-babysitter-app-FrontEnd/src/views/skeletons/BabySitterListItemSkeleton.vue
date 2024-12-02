@@ -1,8 +1,8 @@
 <template>
   <div  class="bg-white shadow-md rounded-xl max-[600px]:gap-5">
         <div class="flex flex-row p-3">
-          <p class="border-slate-50 border-2 p-5 bg-slate-50 md:w-2/5 border-none w-1/2 basis-1/3 rounded-xl inline h-52 "></p>
-             <div class="p-5 inline basis-2/3 md:w-2/3 w-1/2">
+          <p class="border-slate-50 border-2 p-5 bg-slate-50 md:w-2/5 border-none w-1/2 basis-1/2 rounded-xl inline h-52 "></p>
+             <div class="p-5 inline basis-2/3 md:w-1/2 w-1/2">
                 <h3 class="shadow-md rounded-md h-12 p-3 mb-4 py-1 font-semibold block text-xl w-1/2"></h3>
                 <p class="shadow-md rounded-md p-3 block my-1"></p>
                 <p class="shadow-md rounded-md p-3 block my-1"></p>
@@ -10,7 +10,7 @@
              </div>
         </div>
         <div class="p-3">
-          <div class="  py-1 grid grid-cols-3">
+          <div class="  py-1 grid grid-cols-2">
             <p class="rounded-sm py-1 m-1 h-6"></p>
             <p class="rounded-sm  py-1 m-1 h-6"></p>
             <p class="rounded-sm  py-1 m-1 h-6"></p>

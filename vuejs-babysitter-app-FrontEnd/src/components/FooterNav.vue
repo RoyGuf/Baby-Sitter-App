@@ -1,6 +1,6 @@
 <template>
   <footer class="">
-    <div class="shadow-inner shadow-gray-500/20 h-auto bg-[#d3887c73] block w-full relative bottom-0 p-6 md:p-10">
+    <div class="shadow-inner drop-shadow-md shadow-gray-500/20 h-auto bg-[#d3887c73] block w-full relative bottom-0 p-6 md:p-10">
       <div class="socialIcons flex justify-center">
         <a href=""><i class="fa-brands fa-facebook"></i></a>
         <a href=""><i class="fa-brands fa-instagram"></i></a>
@@ -18,7 +18,7 @@
         </ul>
       </div>
     </div>
-    <div class="bg-[#db8e82] p-7 w-full text-center text-lg shadow-inner shadow-gray-500/20">
+    <div class="bg-[#db8e82] p-7 w-full text-center text-lg shadow-inner shadow-gray-500/20 drop-shadow-xl">
         <p>CopyRight &copy;2023, Designed by <span class="designer">Roy</span></p>
       </div>
   </footer>
