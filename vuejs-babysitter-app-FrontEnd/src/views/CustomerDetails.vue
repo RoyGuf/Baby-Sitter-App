@@ -8,7 +8,7 @@
       </div>
     </div>
     <div>
-      <reviews-list :dataArray="customer" :showFormButton="false">
+      <reviews-list :dataArray="customer" :showFormButton="false" :showLink="true">
       </reviews-list>
     </div>
   </div>

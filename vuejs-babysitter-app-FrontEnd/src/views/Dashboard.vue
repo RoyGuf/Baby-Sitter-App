@@ -2,24 +2,26 @@
   <dashboard-skeleton v-if="!babySitterLoaded" ></dashboard-skeleton>
   <div v-if="babySitterLoaded" class="pt-10 p-2 md:p-10 md:max-w-7xl mx-auto flex justify-between">
     <div class="w-full block">
-      <div class="w-full block p-3 px-6 bg-[#d19d94b8] rounded ml-7 font-semibold text-2xl text-[#eee] border-[#9d9d9d] border-1[px] shadow-md" >
+      <div class="stroke w-full stroke-black stroke-1 block p-3 px-6 bg-[#d19d94db] rounded ml-7 font-semibold text-3xl text-[#eee] border-[#9d9d9d] border-1[px] shadow-md" >
         חשבון
       </div>
       <!-- side tabs -->
-      <div class="w-full flex">
-        <ul class="w-1/6 md:w-1/4 tabs_header items-center">
-          <li v-for="title in titles" 
-            ref="scrollToMe"
-            class="text-sm md:text-lg shadow-md block mr-0 font-semibold max-[600px]:px-2 max-[600px]:mx-0.5 rounded w-full text-center p-3 bg-[#e3caa9] m-2 cursor-pointer hover:bg-[#d19c72d9]" 
-            :key="title" 
-            :id="title"
-            :class="{selected: title == selectedTitle}"
-            @click="clickTabTitle(titles.indexOf(title))">
-            {{ title }}
-          </li>
-        </ul>
+      <div class="w-full flex max-sm:block">
+        <!-- <div class="w-full"> -->
+          <ul class="w-1/6 md:w-1/4 tabs_header items-center max-sm:w-full justify-evenly">
+            <li v-for="title in titles" 
+              ref="scrollToMe"
+              class="max-sm:w-auto text-sm md:text-lg shadow-md block max-sm:inline-block mr-0 font-semibold max-[600px]:px-2 max-[600px]:mx-0.5 rounded w-full text-center p-3 bg-[#e3caa9] m-2 cursor-pointer hover:bg-[#d19c72d9]" 
+              :key="title" 
+              :id="title"
+              :class="{selected: title == selectedTitle}"
+              @click="clickTabTitle(titles.indexOf(title))">
+              {{ title }}
+            </li>
+          </ul>
+        <!-- </div> -->
         <!-- middle content -->
-        <div class="block ml-0 md:ml-0 bg-white shadow-md m-2 md:mx-4 w-5/6 md:w-3/4 rounded-xl border-[#b7b7b7] border-[1px] border-solid"
+        <div class="max-sm:m-0 max-sm:w-full block ml-0 md:ml-0 bg-white shadow-md m-2 md:mx-4 w-5/6 md:w-3/4 rounded-xl border-[#b7b7b7] border-[1px] border-solid"
         :class="{loading: formLoad }">
           <!-- img and name -->
           <div class="p-3">
@@ -423,12 +425,19 @@ input.img-input{
 }
 .tabs_header li.selected{
   color: white;
-  background-color: #9b5318ba;
+  background-color: #d19c72ed;
 }
 .tabs_header li{
   border: 1px solid #d3caca;
   border-bottom: outset;
+  border-bottom: 5px solid #70606052;
   /* scroll-margin-top: -1000px; */
+}
+.stroke{
+  /* -webkit-text-stroke: 0.1px gray; */
+  font-weight: bold;
+  /* box-shadow: #000 1px;
+  text-decoration: #000 1px solid; */
 }
 
 
@@ -486,5 +495,11 @@ input.img-input{
   scale: 1.15;
   transition: 0.2s ease-out;
 }
+/* .tab-content{
+    min-height: 200px;
+    border: 1px solid #8080806e;
+    border-radius: 10px;
+    transition: 0.4s ease-in-out;
+  } */
     
 </style>

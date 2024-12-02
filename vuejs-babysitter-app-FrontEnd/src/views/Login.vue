@@ -1,7 +1,7 @@
 <template>
   <div class="md:max-w-[1200px] mx-auto ">
     <form @submit.prevent="submit" class="block w-80 mx-auto p-5 pt-10">
-      <h1 class="p-4 h3 mb-3 fw-normal text-center rounded-md font-semibold bg-slate-200 text-2xl">כניסה לרשומים</h1>
+      <h1 class="shadow-md p-4 h3 mb-3 fw-normal text-center rounded-md font-semibold bg-slate-200 text-2xl">כניסה לרשומים</h1>
       <custom-input class="w-full" v-model="data.email" placeholder="מייל" nameValue="כתובת אימייל" type="email"></custom-input>            
       <span v-if="!formSuccess" v-for="error in v$.email.$errors" :key="error.$uid" class="text-red-500">
         {{ error.$message }}

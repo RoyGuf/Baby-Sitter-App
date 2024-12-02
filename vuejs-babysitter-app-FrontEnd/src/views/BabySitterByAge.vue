@@ -1,14 +1,15 @@
 <template>
-  <div class="md:max-w-[1200px] mx-auto pt-3">
-    <div class="item_list grid grid-cols-1 md:grid-cols-2 gap-5 p-8 max-[600px]:gap-15" 
+  <div class="md:max-w-[1200px] mx-auto py-3 ">
+    <div class="w-full p-4" v-if="loaded">נמצאו {{ babySitters.length }} תוצאות</div>
+    <div class="item_list grid grid-cols-1 md:grid-cols-2 gap-5 px-0 max-[600px]:gap-15" 
     v-if="loaded && babySitters.length">
       <BabySitterListItem 
-        class="max-[600px]:px-15 "
+        class="max-[600px]:px-15 hover:animate-wiggle"
         v-for="babySitter of babySitters" 
         :key="babySitter._id" 
         :babySitter="babySitter"/>
     </div>
-    <div class="item_list grid grid-cols-1 md:grid-cols-2 gap-5 p-8 max-[600px]:gap-15" 
+    <div class="item_list grid grid-cols-1 md:grid-cols-2 gap-5 p-12 px-0 max-[600px]:gap-15" 
     v-if="!loaded">
       <BabySitterListItemSkeleton
       class="max-[600px]:px-15 "

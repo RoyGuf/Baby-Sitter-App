@@ -13,7 +13,7 @@
           </label>
       </div>
     </div>
-    <div class="item_list grid grid-cols-1 md:grid-cols-2 gap-5 p-8 max-[600px]:gap-15" >
+    <div class="item_list grid grid-cols-1 md:grid-cols-3 gap-5 p-8 max-[600px]:gap-15 px-0" >
       <BabySitterListItem 
         class="max-[600px]:px-15 "/>
     </div>

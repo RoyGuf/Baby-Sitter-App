@@ -1,6 +1,6 @@
 <template dir="rtl">
   <navbar />
-  <main class=" items-center w-full h-fit  bg-[#eee] flex" >
+  <main class=" items-center w-full h-fit  bg-[#eee] flex " >
     <div class="w-full mx-auto h-fit min-h-[100vh] mt-[9.5rem] md:mt-64">
       <router-view /> 
     </div>

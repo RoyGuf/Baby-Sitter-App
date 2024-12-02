@@ -2,7 +2,7 @@
    <!-- <Suspense class="md:max-w-[1200px] mx-auto ">
     <template #default> -->
       <babysitter-details-skeleton v-if="!loaded" ></babysitter-details-skeleton>
-      <div class=" item_view md:max-w-7xl mx-auto p-20 m-3 max-[600px]:px-2 bg-white " v-if="loaded && babySitter"> <!-- v-if="Object.keys(Object.keys).length = 0" -->
+      <div class=" item_view md:max-w-7xl mx-auto p-20 pt-10 m-3 max-[600px]:px-2 bg-white rounded-md shadow-md" v-if="loaded && babySitter"> <!-- v-if="Object.keys(Object.keys).length = 0" -->
         <div class="flex my-0 mx-auto w-full  h-44 py-3">
           <img :src="babySitter.avatar.url" :alt="babySitter.firstName + ' ' + babySitter.lastName"
             class=" shadow-lg rounded-md w-40 object-fill my-0  border-slate-400 border-2 ">
@@ -28,25 +28,31 @@
         </div>
         <div>
           <tabs-wrapper>
-            <tab title="פרטים">
-              <p class="py-2 border-b-2 border-t-2 border-[#eee]"><strong>גיל : </strong>{{ babySitter.age }}</p>
-              <p class="py-2 border-b-2 border-[#eee]"><strong>מגדר : </strong>{{ babySitter.gender }}</p>
-              <p class="py-2 border-b-2 border-[#eee]"><strong>תעריף לשעה : </strong>{{ babySitter.price }}  ₪</p>
-              <p class="py-2 border-b-2 border-[#eee]"><strong>עיר : </strong>{{ babySitter.address ? babySitter.address.city : babySitter.address }}</p>
-              <p class="relative py-2 border-b-2 border-[#eee]"><strong>טלפון : </strong><a dir="rtl" class="text-cyan-800 hover:underline" :href="`tel:${ babySitter.phone }`"> 
-                {{ babySitter.phone }} 
-                <span class="material-symbols-outlined">
-                  call
-                </span>
-                </a>   
-              </p>
-              <p class="py-2 border-b-2 border-[#eee]"><strong>אימייל : </strong><a dir="rtl" class=" text-cyan-800 hover:underline" :href="`mailto:${ babySitter.email }`"> 
-                {{ babySitter.email }} 
-                <span class="material-symbols-outlined">
-                  mail
-                </span>
-                </a> 
-              </p>
+            <tab title="פרטים" class="flex justify-evenly">
+              <div class="w-1/2">
+                <p class="py-2 border-b-2 border-t-2 border-[#eee]"><strong>גיל : </strong>{{ babySitter.age }}</p>
+                <p class="py-2 border-b-2 border-[#eee]"><strong>מגדר : </strong>{{ babySitter.gender }}</p>
+                <p class="py-2 border-b-2 border-[#eee]"><strong>תעריף לשעה : </strong>{{ babySitter.price }}  ₪</p>
+                <p class="py-2 border-b-2 border-[#eee]"><strong>עיר : </strong>{{ babySitter.address ? babySitter.address.city : babySitter.address }}</p>
+                <p class="relative py-2 border-b-2 border-[#eee]"><strong>טלפון : </strong><a dir="rtl" class="text-cyan-800 hover:underline" :href="`tel:${ babySitter.phone }`"> 
+                  {{ babySitter.phone }} 
+                  <span class="material-symbols-outlined">
+                    call
+                  </span>
+                  </a>   
+                </p>
+                <p class="py-2 border-b-2 border-[#eee]"><strong>אימייל : </strong><a dir="rtl" class=" text-cyan-800 hover:underline" :href="`mailto:${ babySitter.email }`"> 
+                  {{ babySitter.email }} 
+                  <span class="material-symbols-outlined">
+                    mail
+                  </span>
+                  </a> 
+                </p>
+              </div>
+              <div class="flex justify-center p-3 flex-wrap w-1/2 gap-3">
+                <span v-if="!babySitter.media" class=" text-[#c9c9c9]" style="line-height: 15;">לא קיימת מדיה</span>
+                <img v-for="image in babySitter.media" :src="image.url" class="w-1/3 max-sm:w-1/2 inline p-1 rounded-full border-2 border-[#eee] shadow-sm"/>
+              </div>
             </tab>
             <tab title="חוות דעת">
               <div class="star font-semibold">{{ babySitter.avgRate }}</div>

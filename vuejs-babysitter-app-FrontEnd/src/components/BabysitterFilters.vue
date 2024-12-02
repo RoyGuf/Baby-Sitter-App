@@ -1,7 +1,7 @@
-<template>
-<div class="w-full p-2 filter">
+<template class="">
+<div class="w-full p-2 mt-2 filter border-4 rounded-lg">
   <div class="text-center px-3 inline-block max-[800px]:w-full">
-    <label class="px-10 font-semibold text-center">גילאים:</label>
+    <label class="px-6 font-semibold text-center max-[800px]:w-1/2">גילאים:</label>
     <select name="filter" id="filter" v-model="filter" class="max-[800px]:w-1/2 inline mx-2 shadow-sm  bg-[#fff] md:px-8 py-2 rounded text-center p-2 m-2 cursor-pointer">
       <option value=" " class="text-slate-400">כולם</option>
       <option v-for="age of ages" :value="age.title" 
@@ -9,8 +9,8 @@
     </select>
   </div>
   <div class="text-center px-3 inline-block max-[800px]:w-full">
-    <label class="px-10 font-semibold text-center">מיון לפי:</label>
-    <select name="sort" id="sort" v-model="sort" class="inline mx-2 shadow-sm  bg-[#fff] md:px-7 py-2 rounded text-center p-2 m-2 cursor-pointer">
+    <label class="px-6 font-semibold text-center max-[800px]:w-1/2">מיון לפי:</label>
+    <select name="sort" id="sort" v-model="sort" class="inline mx-2 shadow-sm max-[800px]:w-1/2 bg-[#fff] md:px-8 py-2 rounded text-center p-2 m-2 cursor-pointer">
       <option value=" "  class="text-slate-400">ללא</option>
       <option value="age" >גיל (יורד)</option>
       <option value="age acd" >גיל (עולה)</option>
@@ -20,7 +20,7 @@
       <option value="avgRate acd" >ממוצע ציון ביקורות (עולה)</option>
 
       <option value="price" >מחיר (יורד)</option>
-      <option value="price acd" >מחיר (עול)</option>
+      <option value="price acd" >מחיר (עולה)</option>
     </select>
   </div>
 </div>
@@ -52,9 +52,10 @@ watch(sort, (newVal) => {
 
 function changeSearch(title){
   loaded.value = false;
-  if(title != " ") showClear.value = true
-  if(!title) showClear.value = false
-  selectedTitle.value = title
+  if(title != " ") showClear.value = true;
+  if(!title) showClear.value = false;
+  selectedTitle.value = title;
+  sort.value = " ";
   store.dispatch('filterBabySittersByAge', title)
   .then(() => {
     loaded.value = true;

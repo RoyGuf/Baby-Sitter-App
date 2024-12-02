@@ -8,7 +8,7 @@
         <div class="logo flex mx-auto my-0 w-3/5 max-[600px]:w-full items-center z-50">
           <router-link :to="{ name: 'home' }" class="justify-center inline-flex h-full px-5 w-full">
             <img src="https://res.cloudinary.com/dicrh8yqo/image/upload/v1727701819/filfwc0owxfsmjxkcklp.png"
-              class="w-auto items-center h-auto block justify-center">
+              class="w-auto items-center h-auto block justify-center transition-all">
           </router-link>
         </div>
       </div>
@@ -97,34 +97,53 @@ function updateScroll() {
   #toggle {
     display: none;
   }
+
   header{
     background-color: #cb4e3a;
     color: #fff;
     z-index: 999;
   }
   @media screen and (min-width: 768px) {
+    header .search{
+      visibility: visible;
+      opacity: 1;
+      transition: visibility 1s, opacity 1s ease-in-out;
+
+    }
+    header .logo, header .logo > *{
+      height: 170px;
+      transition: height 0.3s ease-in-out;
+    }
+    header{
+      background-color: #cb4e3a;
+      color: #fff;
+      z-index: 999;
+      height: 255px;
+      transition:height 0.5s;
+      -webkit-transition:height 0.5s;
+      -o-transition:height 0.5s;
+      -ms-transition:height 0.5s;
+    }
     header.shrink, header.shrink > div > div{
-      max-height: 100px;
-      transition: all 0.3s ease-out;
-
-
+      height: 100px;
+      transition: height 0.5s ease-in-out ;
     }
-    header.shrink .logo{
-      max-height: 100px;
+    header.shrink .logo, header.shrink .logo > * {
       height: 100px !important;
-      transition: all 0.3s ease-out;
-
-
+      transition: height 0.3s ease-in-out ;
     }
-    header.shrink .search{
-      display: none;
-      transition: all 0.3s ease-out;
+    header.shrink .search {
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0.5s, opacity 0.2s ease-in-out;
     }
     header.shrink .head::before{
       transform: skew(0deg, 6deg);
+      transition: all 0.3s ease-out;
     }
     header.shrink .head::after{
       transform: skew(0deg, -6deg);
+      transition: all 0.3s ease-out;
     }
   }
   .head::before{
@@ -136,6 +155,7 @@ function updateScroll() {
     width: 50%;
     background: #cb4e3a;
     transform: skew(0deg, 3deg);
+    /* box-shadow: 10px 10px; */
   }
   .head::after{
     content: "";
@@ -146,6 +166,7 @@ function updateScroll() {
     width: 50%;
     background: #cb4e3a;
     transform: skew(0deg, -3deg);
+
   }
   @media (max-width: 768px){
     .head::after, .head::before{
@@ -155,6 +176,7 @@ function updateScroll() {
 
   header input{
     color: #232323;
+    transition: all 0.3s ease-out;
   }
   
   svg, .material-symbols-outlined{
@@ -177,7 +199,7 @@ function updateScroll() {
     margin: 0 auto;
     right: 0;
     left: 0;
-    bottom: -10px;
+    bottom: -5px;
     }
 
     @keyframes rotation {

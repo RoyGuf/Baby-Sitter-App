@@ -25,10 +25,11 @@ export function setSearchedBabySitters(state, keyword) {
 
 export function setFilteredBabySittersByAge(state, keyword) {
   let babysittersArray = [];
+  // let currentBabySitterList = (state.searchedBabySitters.data && state.searchedBabySitters.data.length > 0) ? state.searchedBabySitters.data : state.babySitters.data;
   for (let index = 0; index < state.babySitters.data.length; index++) {
-    const babysitter      = state.babySitters.data[index];
+    const babysitter = state.babySitters.data[index];
+    let regex        = new RegExp( keyword, "i");
     // let babysitterAddress = babysitter.address ? `${babysitter.address.city} ${babysitter.address.details}` : '';
-    let regex             = new RegExp( keyword, "i");
     if(keyword == ' '){
       babysittersArray.push(babysitter)
     }else{
@@ -42,21 +43,22 @@ export function setFilteredBabySittersByAge(state, keyword) {
 
 export function setSortedBabySitters(state, {keyword, acd}) {
   let babysittersArray = [];
+  let currentBabySitterList = (state.searchedBabySitters.data && state.searchedBabySitters.data.length > 0) ? state.searchedBabySitters.data : state.babySitters.data;
   if(keyword == "reviews.length"){
-    babysittersArray = [...state.babySitters.data].sort((a,b) => {
+    babysittersArray = [...currentBabySitterList].sort((a,b) => {
       let firstObj = a.reviews.length
       let secondObj = b.reviews.length
       return (parseFloat(firstObj) > parseFloat(secondObj)) ? 1 : ((parseFloat(secondObj) > parseFloat(firstObj)) ? -1 : 0)
     }).reverse()
   }else if(keyword == " "){
-    babysittersArray = state.babySitters.data
+    babysittersArray = currentBabySitterList
   }else{
     if(!acd){
-      babysittersArray = [...state.babySitters.data].sort((a,b) => {
+      babysittersArray = [...currentBabySitterList].sort((a,b) => {
         return (parseFloat(a[keyword]) > parseFloat(b[keyword])) ? 1 : ((parseFloat(b[keyword]) > parseFloat(a[keyword])) ? -1 : 0)
       }).reverse()
     }else{
-      babysittersArray = [...state.babySitters.data].sort((a,b) => {
+      babysittersArray = [...currentBabySitterList].sort((a,b) => {
         return (parseFloat(a[keyword]) > parseFloat(b[keyword])) ? 1 : ((parseFloat(b[keyword]) > parseFloat(a[keyword])) ? -1 : 0)
       })
     }

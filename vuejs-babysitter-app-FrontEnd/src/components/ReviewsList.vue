@@ -2,7 +2,7 @@
   <div v-for="review of propsObject.dataArray.reviews" 
       :key="review" 
       class=" border-radius-2 border-gray-300 border-2 mt-2 shadow-xl bg-slate-50">
-    <div class="border-b-gray-300 border-b-2 ">
+    <div class="border-b-gray-300 border-b-2 justify-between flex">
       <router-link v-if="review.customer_id && !hideName"
           :to="{ name: 'customerDetails', params: {id: review.customer_id._id} }">        
           <div class="inline-flex text-lg bg-slate-200 p-3 shadow">{{ review.customer_id ? review.customer_id.name : 'ללא שם' }}</div>
@@ -14,6 +14,7 @@
       <div class="inline-flex px-2 md:px-10 text-center items-center ">דירוג:   
         <p class="shadow-xl text-md font-medium py-3 px-6 small-star mx-4">   {{ review.rate }}</p>
       </div>
+      <router-link v-if="propsObject.showLink" class="inline-flex justify-end p-3 hover:text-cyan-600" :to="{ name: 'babysitterDetails', params: {id: review.babysitter_id} }">צפייה בבייביסיטר</router-link>
     </div>
     <div class="h-20 p-2 font-black font-mono  ">{{ review.description }}</div>
   </div>
@@ -35,7 +36,7 @@ import ReviewForm from './ReviewForm.vue';
 
 const route       = useRoute();
 const hideName    = route.fullPath.includes('customer')
-const propsObject = defineProps(["dataArray", "showFormButton"]); //store.state.currentBabySitter
+const propsObject = defineProps(["dataArray", "showFormButton", "showLink"]); //store.state.currentBabySitter
 const showForm    = ref(false);
 
 
